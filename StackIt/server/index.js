@@ -167,10 +167,10 @@ function insertDefaultData() {
     insertDummyQuestions();
   }, 1000);
 
-  // Insert welcome platform message
-  db.run("INSERT OR IGNORE INTO platform_messages (message) VALUES (?)", 
-    ['Welcome to StackIt! Please read our community guidelines before posting.']);
-}
+//   // Insert welcome platform message
+//   db.run("INSERT OR IGNORE INTO platform_messages (message) VALUES (?)", 
+//     ['Welcome to StackIt! Please read our community guidelines before posting.']);
+// }
 
 // Insert dummy questions
 function insertDummyQuestions() {
@@ -685,3 +685,4 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`API available at http://localhost:${PORT}/api`);
 }); 
+}
