@@ -281,8 +281,16 @@ const App = () => {
     switch (currentView) {
       case 'home':
         return (
-          <div className="bg-gray-50 min-h-screen">
-            <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30">
+            <div className="container mx-auto py-6 px-4 sm:px-6 lg:px-8 max-w-7xl">
+              <div className="mb-8">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                  Welcome to StackIt
+                </h1>
+                <p className="text-lg text-gray-600 max-w-3xl">
+                  Your community-driven platform for asking questions, sharing knowledge, and learning together.
+                </p>
+              </div>
               <QuestionList
                 questions={questions}
                 currentUser={currentUser}
@@ -298,8 +306,16 @@ const App = () => {
       
       case 'ask':
         return (
-          <div className="bg-gray-50 min-h-screen">
-            <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30">
+            <div className="container mx-auto py-6 px-4 sm:px-6 lg:px-8 max-w-4xl">
+              <div className="mb-8">
+                <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                  Ask a Question
+                </h1>
+                <p className="text-lg text-gray-600">
+                  Share your knowledge and help others learn. Be specific and clear in your question.
+                </p>
+              </div>
               <QuestionForm
                 onSubmit={handleQuestionSubmit}
                 onCancel={() => setCurrentView('home')}
@@ -311,28 +327,56 @@ const App = () => {
       
       case 'login':
         return (
-          <div className="bg-gray-50 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-            <LoginForm
-              onLogin={handleLogin}
-              onSwitchToRegister={() => setCurrentView('register')}
-            />
+          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-md">
+              <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  Welcome Back
+                </h1>
+                <p className="text-gray-600">
+                  Sign in to your StackIt account
+                </p>
+              </div>
+              <LoginForm
+                onLogin={handleLogin}
+                onSwitchToRegister={() => setCurrentView('register')}
+              />
+            </div>
           </div>
         );
       
       case 'register':
         return (
-          <div className="bg-gray-50 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-            <RegisterForm
-              onRegister={handleRegister}
-              onSwitchToLogin={() => setCurrentView('login')}
-            />
+          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-md">
+              <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  Join StackIt
+                </h1>
+                <p className="text-gray-600">
+                  Create your account and start contributing
+                </p>
+              </div>
+              <RegisterForm
+                onRegister={handleRegister}
+                onSwitchToLogin={() => setCurrentView('login')}
+              />
+            </div>
           </div>
         );
       
       case 'admin':
         return (
-          <div className="bg-gray-50 min-h-screen">
-            <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/30">
+            <div className="container mx-auto py-6 px-4 sm:px-6 lg:px-8 max-w-7xl">
+              <div className="mb-8">
+                <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                  Admin Panel
+                </h1>
+                <p className="text-lg text-gray-600">
+                  Manage users, content, and platform settings
+                </p>
+              </div>
               <AdminPanel
                 questions={questions}
                 users={users}
@@ -354,8 +398,16 @@ const App = () => {
       
       default:
         return (
-          <div className="bg-gray-50 min-h-screen">
-            <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30">
+            <div className="container mx-auto py-6 px-4 sm:px-6 lg:px-8 max-w-7xl">
+              <div className="mb-8">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                  Welcome to StackIt
+                </h1>
+                <p className="text-lg text-gray-600 max-w-3xl">
+                  Your community-driven platform for asking questions, sharing knowledge, and learning together.
+                </p>
+              </div>
               <QuestionList
                 questions={questions}
                 currentUser={currentUser}
@@ -372,7 +424,7 @@ const App = () => {
   };
 
   return (
-    <div className="App min-h-screen flex flex-col">
+    <div className="App min-h-screen flex flex-col bg-gray-50">
       {/* Header */}
       <Header
         currentUser={currentUser}

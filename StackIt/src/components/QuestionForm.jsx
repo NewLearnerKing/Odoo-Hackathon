@@ -88,19 +88,19 @@ const QuestionForm = ({ onSubmit, onCancel, availableTags = [] }) => {
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <div className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-200">
+      <div className="bg-white/90 backdrop-blur-sm p-8 sm:p-10 rounded-3xl shadow-large border border-gray-200/50">
         <div className="mb-8">
-          <div className="flex items-center mb-4">
-            <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg mr-4">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="flex items-center mb-6">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-soft mr-6">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div>
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent">
                 Ask a Question
               </h2>
-              <p className="text-gray-600 mt-1">Share your knowledge and help others in the community</p>
+              <p className="text-gray-600 mt-2 text-lg">Share your knowledge and help others in the community</p>
             </div>
           </div>
         </div>
@@ -118,26 +118,26 @@ const QuestionForm = ({ onSubmit, onCancel, availableTags = [] }) => {
                 value={formData.title}
                 onChange={handleTitleChange}
                 onKeyPress={handleKeyPress}
-                className={`w-full pl-12 pr-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg ${
-                  errors.title ? 'border-red-300 bg-red-50' : 'border-gray-300 hover:border-gray-400'
+                className={`w-full pl-14 pr-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg bg-white/80 backdrop-blur-sm ${
+                  errors.title ? 'border-red-300 bg-red-50/50' : 'border-gray-300/50 hover:border-gray-400/50'
                 }`}
                 placeholder="What's your question? Be specific and clear."
                 disabled={isSubmitting}
                 maxLength={150}
               />
-              <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             {errors.title && (
-              <div className="mt-2 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg flex items-center">
-                <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <div className="mt-3 p-4 bg-red-50/80 border border-red-200/50 text-red-700 rounded-xl flex items-center backdrop-blur-sm">
+                <svg className="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 00-1.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                 </svg>
                 {errors.title}
               </div>
             )}
-            <div className="mt-2 flex justify-between items-center text-sm text-gray-500">
+            <div className="mt-3 flex justify-between items-center text-sm text-gray-500">
               <span>Be specific and clear about your question</span>
               <span className={`font-medium ${formData.title.length > 140 ? 'text-red-500' : ''}`}>
                 {formData.title.length}/150
@@ -150,8 +150,8 @@ const QuestionForm = ({ onSubmit, onCancel, availableTags = [] }) => {
             <label className="block text-lg font-semibold text-gray-700 mb-3">
               Question Details *
             </label>
-            <div className={`border-2 rounded-xl overflow-hidden transition-all duration-200 ${
-              errors.description ? 'border-red-300' : 'border-gray-300 hover:border-gray-400'
+            <div className={`border-2 rounded-xl overflow-hidden transition-all duration-200 bg-white/80 backdrop-blur-sm ${
+              errors.description ? 'border-red-300' : 'border-gray-300/50 hover:border-gray-400/50'
             }`}>
               <RichTextEditor
                 value={formData.description}
@@ -160,14 +160,14 @@ const QuestionForm = ({ onSubmit, onCancel, availableTags = [] }) => {
               />
             </div>
             {errors.description && (
-              <div className="mt-2 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg flex items-center">
-                <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <div className="mt-3 p-4 bg-red-50/80 border border-red-200/50 text-red-700 rounded-xl flex items-center backdrop-blur-sm">
+                <svg className="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 00-1.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                 </svg>
                 {errors.description}
               </div>
             )}
-            <div className="mt-2 text-sm text-gray-500">
+            <div className="mt-3 text-sm text-gray-500">
               Include code examples, error messages, or any relevant context
             </div>
           </div>
@@ -183,61 +183,55 @@ const QuestionForm = ({ onSubmit, onCancel, availableTags = [] }) => {
               availableTags={availableTags}
             />
             {errors.tags && (
-              <div className="mt-2 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg flex items-center">
-                <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <div className="mt-3 p-4 bg-red-50/80 border border-red-200/50 text-red-700 rounded-xl flex items-center backdrop-blur-sm">
+                <svg className="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 00-1.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                 </svg>
                 {errors.tags}
               </div>
             )}
-            <div className="mt-2 text-sm text-gray-500">
+            <div className="mt-3 text-sm text-gray-500">
               Add up to 5 tags to help others find your question (e.g., React, JavaScript, Python)
             </div>
           </div>
 
           {/* Tips Section */}
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200">
-            <h4 className="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+          <div className="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 p-6 rounded-xl border border-blue-200/50 backdrop-blur-sm">
+            <h4 className="text-lg font-semibold text-blue-800 mb-4 flex items-center">
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
               </svg>
-              Tips for a great question
+              Writing a Good Question
             </h4>
             <div className="text-sm text-blue-700 space-y-2">
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <div className="flex items-start space-x-2">
+                <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
                 <span>Be specific and provide enough context</span>
               </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              <div className="flex items-start space-x-2">
+                <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
                 <span>Include code examples and error messages</span>
               </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <span>Use relevant tags to help others find your question</span>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <span>Check if your question has already been answered</span>
+              <div className="flex items-start space-x-2">
+                <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span>Use appropriate tags to help others find your question</span>
               </div>
             </div>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-6 border-t border-gray-200">
-            <button
-              type="button"
-              onClick={onCancel}
-              disabled={isSubmitting}
-              className="px-6 py-3 text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 font-medium"
-            >
-              Cancel
-            </button>
+          <div className="flex flex-col sm:flex-row gap-4 pt-6">
             <button
               type="button"
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl font-semibold text-lg"
+              className="flex-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-4 px-8 rounded-xl hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-soft hover:shadow-medium transform hover:scale-105 text-lg font-semibold"
             >
               {isSubmitting ? (
                 <div className="flex items-center justify-center">
@@ -250,6 +244,15 @@ const QuestionForm = ({ onSubmit, onCancel, availableTags = [] }) => {
               ) : (
                 'Post Question'
               )}
+            </button>
+            
+            <button
+              type="button"
+              onClick={onCancel}
+              disabled={isSubmitting}
+              className="flex-1 bg-gray-100 text-gray-700 py-4 px-8 rounded-xl hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-soft hover:shadow-medium transform hover:scale-105 text-lg font-semibold"
+            >
+              Cancel
             </button>
           </div>
         </div>

@@ -187,7 +187,7 @@ let notifications = [
 let platformMessages = [
   {
     id: 1,
-    message: 'Welcome to StackIt! Please read our community guidelines before posting.',
+    message: '',
     active: true,
     timestamp: new Date('2024-01-01T00:00:00')
   }
